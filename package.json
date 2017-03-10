@@ -8,5 +8,9 @@
     "start": "node server.js"
   },
   "author": "Morgan Nomura",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.15.2",
+    "pg": "^6.1.4"
+  }
 }
