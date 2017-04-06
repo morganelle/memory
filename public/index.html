@@ -4,12 +4,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1"
     <meta charset="utf-8">
     <title>Memory</title>
+    <script id="card-template" type="x-handlebars-template">
+      <div class="card, {{id}}">
+        {{art}}
+      </div>
+    </script>
   </head>
   <body>
     <h1>Test</h1>
+    <section id="gameboard">
+    </section>
   </body>
   <!-- Vendor scripts -->
   <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.6/handlebars.min.js"></script>
   <!-- Model scripts -->
   <script src="scripts/models/cards.js"></script>
   <!-- View scripts -->
