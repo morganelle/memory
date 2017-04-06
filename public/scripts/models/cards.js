@@ -13,7 +13,7 @@ function Card(art, id) {
 
 // Instantiates new cards
 function makeCard(cardCount, art) {
-  for (var i = 0; i < cardCount; i++) {
+  for (let i = 0; i < cardCount; i++) {
     cards.push(new Card(art[i], i));
   }
 }
@@ -22,21 +22,20 @@ function makeCard(cardCount, art) {
 function makeCardsAll(cardArr) {
   cardEls = cardArr.map((card) => [card, card]).reduce((a, b) => a.concat(b),[]);
   shuffle(cardEls);
-  console.log(cardEls);
 }
 
 // Creates DOM elements from cards using Handlebars
 function makeCardEls() {
-  var template = Handlebars.compile($('#card-template').html());
+  let template = Handlebars.compile($('#card-template').html());
   cardEls.forEach(function(cardEl) {
     $('#gameboard').append(template(cardEl));
   })
 }
 
 // Shuffles an array in place
-function shuffle(cardArr) {
-  for (let i = cardArr.length; i; i--) {
+function shuffle(arr) {
+  for (let i = arr.length; i; i--) {
     let j = Math.floor(Math.random() * i);
-    [cardArr[i - 1], cardArr[j]] = [cardArr[j], cardArr[i - 1]];
+    [arr[i - 1], arr[j]] = [arr[j], arr[i - 1]];
   }
 }
