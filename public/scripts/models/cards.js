@@ -1,7 +1,7 @@
 'use strict';
 
 // Array of cards with 1 instance of each
-let test = ['a', 'b', 'c', 'd','e','f','g']; //delete when there are art options
+let test = ['a', 'b', 'c', 'd','e','f','g', 'h']; //delete when there are art options
 let cards = [];
 let cardEls = [];
 
