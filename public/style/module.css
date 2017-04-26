@@ -2,8 +2,8 @@
 div.card {
   border: 1px solid pink;
   display:inline-block;
-  width: 200px;
-  height: 200px;
+  width: 150px;
+  height: 150px;
   font-size: 5em;
   text-align: center;
 }

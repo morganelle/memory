@@ -2,8 +2,6 @@
 
 // Array of cards with 1 instance of each
 let test = ['a', 'b', 'c', 'd','e','f','g', 'h']; //delete when there are art options
-let cards = [];
-let cardEls = [];
 
 // Card constructor
 function Card(art, id) {
@@ -13,23 +11,18 @@ function Card(art, id) {
 
 // Instantiates new cards
 function makeCard(cardCount, art) {
+  let cards = [];
   for (let i = 0; i < cardCount; i++) {
     cards.push(new Card(art[i], i));
   }
+  return cards;
 }
 
 // Creates card elements from card objects
 function makeCardsAll(cardArr) {
-  cardEls = cardArr.map((card) => [card, card]).reduce((a, b) => a.concat(b),[]);
+  var cardEls = cardArr.map((card) => [card, card]).reduce((a, b) => a.concat(b),[]);
   shuffle(cardEls);
-}
-
-// Creates DOM elements from cards using Handlebars
-function makeCardEls() {
-  let template = Handlebars.compile($('#card-template').html());
-  cardEls.forEach(function(cardEl) {
-    $('#gameboard').append(template(cardEl));
-  })
+  return cardEls;
 }
 
 // Shuffles an array in place
@@ -40,8 +33,6 @@ function shuffle(arr) {
   }
 }
 
-function makeGameCards(cardCount, art, cardArr) {
-  makeCard(cardCount, art);
-  makeCardsAll(cardArr);
-  makeCardEls();
+function makeGameCards(cardCount, art) {
+   return makeCardsAll(makeCard(cardCount, art));
 }

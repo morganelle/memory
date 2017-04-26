@@ -10,6 +10,7 @@ function Game(cardCount) {
   this.endTime;
   this.time;
   this.done = false;
+  this.cards = makeGameCards(cardCount, test);
 }
 
 Game.prototype.finish = function() {
@@ -18,4 +19,11 @@ Game.prototype.finish = function() {
     this.endTime = new Date();
     this.time = this.endTime - this.startTime;
   }
+}
+
+Game.prototype.makeCardEls = function() {
+  let template = Handlebars.compile($('#card-template').html());
+  this.cards.forEach(function(cardEl) {
+    $('#gameboard').append(template(cardEl));
+  })
 }
