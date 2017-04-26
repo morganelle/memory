@@ -39,3 +39,9 @@ function shuffle(arr) {
     [arr[i - 1], arr[j]] = [arr[j], arr[i - 1]];
   }
 }
+
+function makeGameCards(cardCount, art, cardArr) {
+  makeCard(cardCount, art);
+  makeCardsAll(cardArr);
+  makeCardEls();
+}

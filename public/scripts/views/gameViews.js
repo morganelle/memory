@@ -2,12 +2,18 @@
 
 // Launch game by button
 var gameStartEl = document.getElementById('gamestart');
+var gameBoardEl = document.getElementById('gameboard');
 gameStartEl.addEventListener('click', newGame, false);
 
 function newGame() {
-  console.log('newGame');
-  var cake = new Game(8);
-  makeCard(8, test);
-  makeCardsAll(cards);
-  makeCardEls();
+  // clear();
+  new Game(8);
+  makeGameCards(8, test, cards);
 }
+
+// function clear(){
+//   console.log('clear function',gameBoardEl.childNodes);
+//   while (gameBoardEl.firstChild) {
+//     gameBoardEl.removeChild(gameBoardEl.firstChild);
+//   }
+// }
