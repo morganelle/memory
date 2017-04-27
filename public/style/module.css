@@ -1,9 +1,13 @@
 /* Gameboard */
-div.card {
-  border: 1px solid pink;
+section#gameboard div {
+  border: 1px solid cyan;
   display:inline-block;
   width: 150px;
   height: 150px;
   font-size: 5em;
   text-align: center;
+}
+
+div.clicked {
+  background-color: pink;
 }

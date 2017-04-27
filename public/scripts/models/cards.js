@@ -7,6 +7,7 @@ let test = ['a', 'b', 'c', 'd','e','f','g', 'h']; //delete when there are art op
 function Card(art, id) {
   this.art = art;
   this.id = id;
+  this.matched = false;
 }
 
 // Instantiates new cards

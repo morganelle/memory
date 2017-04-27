@@ -4,6 +4,7 @@
 function Game(cardCount) {
   this.theme;
   this.cardCount = cardCount;
+  this.clickCount = 0;
   this.guessCount = 0;
   this.correctCount = 0;
   this.startTime = new Date();
@@ -13,6 +14,7 @@ function Game(cardCount) {
   this.cards = makeGameCards(cardCount, test);
 }
 
+// Game end
 Game.prototype.finish = function() {
   if (this.cardCount === this.correctCount) {
     this.done = true;
@@ -21,6 +23,15 @@ Game.prototype.finish = function() {
   }
 }
 
+// Game match: takes two clicks and compares them
+Game.prototype.matchCards = function() {
+  if (this.clickCount > 1) {
+    console.log('clickCount is 2');
+    this.clickCount = 0;
+  }
+}
+
+// Populate DOM with card elements
 Game.prototype.makeCardEls = function() {
   let template = Handlebars.compile($('#card-template').html());
   this.cards.forEach(function(cardEl) {
