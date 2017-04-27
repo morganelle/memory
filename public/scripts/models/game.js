@@ -26,7 +26,7 @@ Game.prototype.finish = function() {
 // Game match: takes two clicks and compares them
 Game.prototype.matchCards = function() {
   if (this.clickCount > 1) {
-    console.log('clickCount is 2');
+    console.log('clickCount reached 2');
     this.clickCount = 0;
   }
 }
