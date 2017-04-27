@@ -28,17 +28,16 @@ Game.prototype.finish = function() {
 Game.prototype.matchCards = function() {
   console.log('round', this.round, 'click', this.clickCount);
   if (this.clickCount === 2) {
-    console.log(this.round);
     if (this.round[0] === this.round[1]) {
       let matched = $(`div[data-card=${this.round[0]}]`).toArray();
       matched.forEach(function(cardEl) {
         cardEl.setAttribute('data-status', 'true');
       });
       cardEventListeners();
-      console.log(matched);
-      this.guessCount, this.correctCount++;
+      this.guessCount++; 
+      this.correctCount++;
       this.finish();
-      console.log('match!!!!!!!');
+      console.log(matched, 'match!!!!!!!');
     }
     else {
       this.guessCount++;
