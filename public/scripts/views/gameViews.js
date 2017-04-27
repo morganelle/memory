@@ -24,7 +24,7 @@ function cardEventListeners() {
   let cards = $('div.card').toArray();
   cards.forEach(function(card) {
     card.addEventListener('click', function(event) {
-      console.log(event.target);
+      currentGame.round.push(event.target.getAttribute('data-card'));
       currentGame.clickCount++;
       event.target.className += ' clicked';
       currentGame.matchCards();

@@ -8,6 +8,7 @@ function Game(cardCount) {
   this.guessCount = 0;
   this.correctCount = 0;
   this.startTime = new Date();
+  this.round = [];
   this.endTime;
   this.time;
   this.done = false;
@@ -26,8 +27,12 @@ Game.prototype.finish = function() {
 // Game match: takes two clicks and compares them
 Game.prototype.matchCards = function() {
   if (this.clickCount > 1) {
+    if (this.round[0] === this.round[1]) {
+      console.log('match!!!!!!!');
+    }
     console.log('clickCount reached 2');
     this.clickCount = 0;
+    this.round = [];
   }
 }
 
