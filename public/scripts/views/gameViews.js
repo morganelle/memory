@@ -1,10 +1,10 @@
 'use strict';
 
-var currentGame = {};
+let currentGame = {};
 
 // Launch game by button
-var gameStartEl = document.getElementById('gamestart');
-var gameBoardEl = document.getElementById('gameboard');
+let gameStartEl = document.getElementById('gamestart');
+let gameBoardEl = document.getElementById('gameboard');
 gameStartEl.addEventListener('click', newGame, false);
 
 // Start a new game
@@ -21,13 +21,20 @@ function clear(){
 
 // Add event listeners to all cards
 function cardEventListeners() {
-  let cards = $('div.card').toArray();
-  cards.forEach(function(card) {
-    card.addEventListener('click', function(event) {
-      currentGame.round.push(event.target.getAttribute('data-card'));
-      currentGame.clickCount++;
-      event.target.className += ' clicked';
-      currentGame.matchCards();
-    }, false);
+  let allCards = $("div.card").toArray();
+  let unmatchedCards = $("div[data-status='false']").toArray();
+  allCards.forEach(function(card) {
+    card.removeEventListener('click', gameClickHandler, false);
   });
+  unmatchedCards.forEach(function(card) {
+    card.addEventListener('click', gameClickHandler, false);
+  });
+}
+
+function gameClickHandler(event) {
+    console.log('card number',event.target.getAttribute('data-card'))
+    currentGame.round.push(event.target.getAttribute('data-card'));
+    currentGame.clickCount++;
+    event.target.className += ' clicked';
+    currentGame.matchCards();
 }

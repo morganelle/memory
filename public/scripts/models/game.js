@@ -26,11 +26,24 @@ Game.prototype.finish = function() {
 
 // Game match: takes two clicks and compares them
 Game.prototype.matchCards = function() {
-  if (this.clickCount > 1) {
+  console.log('round', this.round, 'click', this.clickCount);
+  if (this.clickCount === 2) {
+    console.log(this.round);
     if (this.round[0] === this.round[1]) {
+      let matched = $(`div[data-card=${this.round[0]}]`).toArray();
+      matched.forEach(function(cardEl) {
+        cardEl.setAttribute('data-status', 'true');
+      });
+      cardEventListeners();
+      console.log(matched);
+      this.guessCount, this.correctCount++;
+      this.finish();
       console.log('match!!!!!!!');
     }
-    console.log('clickCount reached 2');
+    else {
+      this.guessCount++;
+      console.log('no match');
+    }
     this.clickCount = 0;
     this.round = [];
   }
