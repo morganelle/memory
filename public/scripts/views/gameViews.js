@@ -9,14 +9,9 @@ gameStartEl.addEventListener('click', newGame, false);
 
 // Start a new game
 function newGame() {
-  clear();
+  $('#gameboard').empty();
   currentGame = new Game(8);
   currentGame.makeCardEls();
-}
-
-// Empties gameboard of cards
-function clear(){
-  $('#gameboard').empty();
 }
 
 // Add event listeners to all cards
@@ -32,7 +27,6 @@ function cardEventListeners() {
 }
 
 function gameClickHandler(event) {
-    console.log('card number',event.target.getAttribute('data-card'))
     currentGame.round.push(event.target.getAttribute('data-card'));
     currentGame.clickCount++;
     event.target.className += ' clicked';

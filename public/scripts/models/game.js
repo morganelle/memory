@@ -32,12 +32,13 @@ Game.prototype.matchCards = function() {
       let matched = $(`div[data-card=${this.round[0]}]`).toArray();
       matched.forEach(function(cardEl) {
         cardEl.setAttribute('data-status', 'true');
+        cardEl.className += ' matched';
       });
       cardEventListeners();
-      this.guessCount++; 
+      this.guessCount++;
       this.correctCount++;
       this.finish();
-      console.log(matched, 'match!!!!!!!');
+      console.log(matched, 'match!!');
     }
     else {
       this.guessCount++;

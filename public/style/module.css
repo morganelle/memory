@@ -1,13 +1,21 @@
 /* Gameboard */
+section#gameboard {
+  width: 550px;
+}
+
 section#gameboard div {
   border: 1px solid cyan;
   display:inline-block;
-  width: 150px;
-  height: 150px;
+  width: 125px;
+  height: 125px;
   font-size: 5em;
   text-align: center;
 }
 
 div.clicked {
   background-color: pink;
+}
+
+div.matched {
+  opacity: 0.3;
 }
